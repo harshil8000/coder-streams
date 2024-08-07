@@ -1,4 +1,3 @@
-import illustration from "@/assets/illustration.svg"
 import il2 from "@/assets/il2.jpg"
 
 import FormComponent from "@/components/forms/FormComponent"
