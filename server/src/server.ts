@@ -14,11 +14,7 @@ const app = express()
 app.use(express.json())
 
 app.use(cors())
-app.use(cors({
-  origin: 'https://apicoderstreams.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+
 app.use(express.static(path.join(__dirname, "public"))) // Serve static files
 
 const server = http.createServer(app)
