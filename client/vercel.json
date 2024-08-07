@@ -1,5 +1,8 @@
 {
-    "rewrites": [
-        {"source": "/(.*)", "destination": "/"}
-    ]
-}
+    "build": {
+      "env": {
+        "ROLLUP_NATIVE": "false"
+      }
+    }
+  }
+  
