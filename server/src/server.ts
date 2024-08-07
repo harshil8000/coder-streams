@@ -22,8 +22,7 @@ const io = new Server(server, {
 	cors: {
 		origin: "*",
 	},
-	maxHttpBufferSize: 1e8,
-	pingTimeout: 60000,
+	
 })
 
 let userSocketMap: User[] = []
