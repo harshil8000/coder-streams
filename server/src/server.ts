@@ -11,13 +11,20 @@ dotenv.config();
 
 const app = express();
 
-app.use(express.json());
 
-app.use(cors({
-	origin: 'https://coder-streams-client.vercel.app',
-	methods: ['GET', 'POST', 'PUT', 'DELETE'],
-	credentials: true,
-}));
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", req.headers.origin); // Allow the origin of the request
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    // If the request is an OPTIONS request (for CORS preflight), end it here
+    if (req.method === "OPTIONS") {
+        return res.status(200).end();
+    }
+
+    next();
+});
 
 app.use(express.static(path.join(__dirname, "public"))); // Serve static files
 
